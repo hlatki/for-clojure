@@ -1,6 +1,6 @@
 (ns for-clojure.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn partially-flatten
+  "Partially flatten a sequence (#93)"
+  [coll]
+  (map flatten x))
