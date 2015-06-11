@@ -27,3 +27,14 @@
                           (conj v i)
                           (first (rest rest-vect)))
       :else acc-map)))
+
+(defn smallest-num-in-all-seqs
+  "Return the smallest number in all (sorted) input sequences (#108)"
+  [& seqs]
+  (let [firsts (map first seqs)
+        min-first (apply min firsts)]
+    (if (apply = firsts)
+      min-first
+      (recur (map #(if (= (first %) min-first)
+                    (rest %)
+                    %) seqs)))))
