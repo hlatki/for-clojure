@@ -3,4 +3,5 @@
 (defn partially-flatten
   "Partially flatten a sequence (#93)"
   [coll]
-  (map flatten x))
+  (filter #(and (sequential? %) (not (sequential? (first %))))
+    (tree-seq sequential? seq coll)))
